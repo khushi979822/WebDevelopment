@@ -1,0 +1,21 @@
+#outerdiv
+{
+    border: 5px solid black;
+    width: 600px;
+    height:600px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align:center;
+    gap: 50px;
+    background-color: rgb(121, 168, 243);
+}
+
+#innerdiv
+{
+    border: 3px solid black;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+
+}

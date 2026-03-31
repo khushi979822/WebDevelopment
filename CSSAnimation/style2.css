@@ -1,0 +1,44 @@
+   *{
+   margin: 0;
+    padding: 0;
+}
+@keyframes khushi {
+    0%{
+        left: 0px;
+        top: 0px;
+        background-color: saddlebrown;
+    }
+    25%{
+        left: 500px;
+        top: 0px;
+        background-color: lightblue;
+    }
+    50%{
+        left: 500px;
+        top: 500px;
+        background-color: lightgreen;
+    }
+    75%{
+        left: 0px;
+        top: 500px;
+        background-color: lightcoral;
+    }
+    100%{
+        left: 0px;
+        top: 0px;
+        background-color: saddlebrown;
+    }
+    
+}
+
+#box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: khushi 5s linear infinite alternate;
+}

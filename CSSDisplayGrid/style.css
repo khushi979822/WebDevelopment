@@ -1,0 +1,24 @@
+#outerdiv
+{
+    border: 3px solid black;
+    width: 600px;
+    height:700px;
+    display:grid;
+    grid-template-columns:auto auto auto;
+    justify-items:center;
+    align-items:center;
+    column-gap: 10px;
+    background-color: rgb(121, 168, 243);
+}
+
+.innerdiv
+{
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+
+}
