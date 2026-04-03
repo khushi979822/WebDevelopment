@@ -16,7 +16,7 @@
     50%{
         left: 500px;
         top: 500px;
-        background-color: lightgreen;
+        background-color: lightgreen; 
     }
     75%{
         left: 0px;
@@ -40,5 +40,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    animation: khushi 5s linear infinite alternate;
+    animation: khushi 5s linear 2s alternate;
+    background-color: palevioletred;
+    
 }
