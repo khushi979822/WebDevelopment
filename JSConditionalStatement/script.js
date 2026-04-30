@@ -55,3 +55,39 @@ data = name || "N/A";
 //   data = "N/A";
 // }
 console.log(data);
+
+let x = 10;
+console.log(x > 10 && y < 5); // false (y is undefined)
+
+for (let i = 0; i < 5; i++) {
+  if (i === 3) {
+    continue;
+  }
+  console.log(i);
+}
+
+for (let i = 0; i < 5; i++) {
+  if (i === 3) {
+    break;
+  }
+  console.log(i);
+}
+
+let choice;
+switch (choice) {
+  case 1: {
+    console.log("Coffee");
+    break;
+  }
+  case 2: {
+    console.log("Lassi");
+    break;
+  }
+  case 3: {
+    console.log("Tea");
+    break;
+  }
+  default: {
+    console.log("Drink Water");
+  }
+}
