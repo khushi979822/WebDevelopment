@@ -18,6 +18,7 @@ if (num % 2 === 0) {
 } else {
   console.log("Odd Number");
 }
+
 let score = 85;
 if (score >= 90) {
   console.log("Grade: A");
@@ -30,3 +31,27 @@ if (score >= 90) {
 } else {
   console.log("Grade: Fail");
 }
+
+let user = "abcde";
+let pass = "12345";
+if (user === "abcde" && pass === "12345") {
+  console.log("Login Successful");
+} else {
+  console.log("Login Failed");
+}
+
+let a = 5;
+b = 6;
+console.log(a > 2 && b < 10); // true
+console.log(a < 2 || b > 10); // false
+
+let data;
+
+let name = "Khushi";
+data = name || "N/A";
+// if (name) {
+//   data = name;
+// } else {
+//   data = "N/A";
+// }
+console.log(data);
