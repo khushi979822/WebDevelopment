@@ -1,6 +1,7 @@
-let i = 1;   // Initialization
+let i = 1; // Initialization
 
-while (i <= 3) {   // Condition
-    console.log(i);   // Work
-    i++;   // Update
+while (i <= 3) {
+  // Condition
+  console.log(i); // Work
+  i++; // Update
 }
