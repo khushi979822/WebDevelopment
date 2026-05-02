@@ -43,3 +43,32 @@ function classF() {
   console.log("ClassF", test);
 }
 classF(); // calling the function after its declaration
+
+// combined example of scoping
+let announcement = "School will be closed tomorrow";
+
+function classroom() {
+  // Local Scope → Only this classroom
+  let classMessage = "Complete your homework";
+
+  console.log("Inside Classroom:");
+  console.log(announcement); //  Global accessible
+  console.log(classMessage); //  Local accessible
+
+  if (true) {
+    // Block Scope → Only inside this block (group discussion)
+    let groupDiscussion = "Prepare for group presentation";
+
+    console.log("Inside Group:");
+    console.log(announcement); //  Global
+    console.log(classMessage); //  Local
+    console.log(groupDiscussion); //  Block
+  }
+
+  // console.log(groupDiscussion);  Error (block scope)
+}
+
+classroom();
+
+console.log("Outside Classroom:");
+console.log(announcement); //  Global
