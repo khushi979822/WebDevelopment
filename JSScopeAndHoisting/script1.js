@@ -21,3 +21,7 @@ abc(); // calling the function before its declaration (hoisting)
 function abc() {
   console.log("Hey! Khushi");
 }
+
+function submit() {
+  console.log("Button clicked!");
+}
