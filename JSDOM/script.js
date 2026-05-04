@@ -6,4 +6,7 @@ function Submit() {
 
   document.getElementById("myData").innerText = fn;
   document.getElementById("fullName").value = "";
+
+  document.getElementById("datacard").classList.add("divshow");
+  document.getElementById("datacard").classList.remove("divhide");
 }
