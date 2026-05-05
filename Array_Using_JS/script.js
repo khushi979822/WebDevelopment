@@ -23,3 +23,23 @@ console.log(arr);
 arr.shift(88);
 console.log(arr);
 
+console.log(arr.at(4));
+
+console.log(arr.includes(50));
+
+console.log(arr.indexOf(50));
+
+console.log(arr.findIndex((element) => element === 50));
+
+let unar = [66,88,58,96,23,67,89,45,78];
+console.log(unar);
+unar.sort();
+console.log(unar);
+
+unar.reverse();
+console.log(unar);
+
+
+
+
+
