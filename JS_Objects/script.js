@@ -1,17 +1,17 @@
-//JSON - JavaScript Object Notation 
-let fd = [
-  ["Khushi Kumari", "11-03-2006", "9798227499", "Student", "Bihar", "India"],
-  ["Rohit Kumar", "15-08-2005", "9876543210", "Student", "Bihar", "India"],
-  ["Anjali Singh", "20-12-2004", "9876543211", "Student", "Bihar", "India"],
-  ["Rahul Sharma", "05-05-2006", "9876543212", "Student", "Bihar", "India"],
-  ["Pooja Verma", "30-09-2005", "9876543213", "Student", "Bihar", "India"],
-];
-fd.forEach((element) => console.log(element[0]));
+//JSON - JavaScript Object Notation
+// let fd = [
+//   ["Khushi Kumari", "11-03-2006", "9798227499", "Student", "Bihar", "India"],
+//   ["Rohit Kumar", "15-08-2005", "9876543210", "Student", "Bihar", "India"],
+//   ["Anjali Singh", "20-12-2004", "9876543211", "Student", "Bihar", "India"],
+//   ["Rahul Sharma", "05-05-2006", "9876543212", "Student", "Bihar", "India"],
+//   ["Pooja Verma", "30-09-2005", "9876543213", "Student", "Bihar", "India"],
+// ];
+// fd.forEach((element) => console.log(element[0]));
 
-// Using JSON
-// bracket notation
-// Dot Notation only work on JSON
-console.log("Using JSON");
+// // Using JSON
+// // bracket notation
+// // Dot Notation only work on JSON
+// console.log("Using JSON");
 let fy = [
   {
     name: "Mann Verma",
@@ -54,16 +54,36 @@ fy.forEach((element) => {
   console.log(element.name);
 });
 
-console.log(fy);
-console.log(fy[1].name);
-console.log(fy[1]["name"]);
+fy.map((element, idx) => {
+  console.log(idx);
+  console.log(element.city);
+});
 
-let khushi = {
-  name: "Khushi Kumari",
-  dob: "11-03-2006",
-  mobile: 9798227499,
-  city: "Bhopal",
-  profession: "Software Engineer",
-};
-console.log(Object.keys(khushi));
-console.log(Object.values(khushi));
+// console.log(fy);
+// console.log(fy[1].name);
+// console.log(fy[1]["name"]);
+
+// let khushi = {
+//   name: "Khushi Kumari",
+//   dob: "11-03-2006",
+//   mobile: 9798227499,
+//   city: "Bhopal",
+//   profession: "Software Engineer",
+// };
+// console.log(Object.keys(khushi));
+// console.log(Object.values(khushi));
+// console.log(Object.entries(khushi));
+
+let arr = [2, 4, 6, 8, 30, 20, 40, 10, 23, 60, 40, 30];
+arr.sort((a, b) => a - b);
+console.log(arr);
+
+console.log(arr.find((val) => val === 30));
+console.log(arr.findIndex((val) => val === 30));
+console.log(arr.findLastIndex((val) => val === 30));
+console.log(arr.filter((val) => val > 30));
+
+console.log(arr.slice(2, 5));
+let ab = "This is a web - development course";
+console.log(ab.split(" "));
+console.log(ab.split("- "));
