@@ -1,3 +1,4 @@
+//JSON - JavaScript Object Notation 
 let fd = [
   ["Khushi Kumari", "11-03-2006", "9798227499", "Student", "Bihar", "India"],
   ["Rohit Kumar", "15-08-2005", "9876543210", "Student", "Bihar", "India"],
@@ -8,6 +9,8 @@ let fd = [
 fd.forEach((element) => console.log(element[0]));
 
 // Using JSON
+// bracket notation
+// Dot Notation only work on JSON
 console.log("Using JSON");
 let fy = [
   {
@@ -18,7 +21,7 @@ let fy = [
     profession: "Teacher",
   },
   {
-    name: "Khushi Kumaari",
+    name: "Khushi Kumari",
     dob: "15-12-2002",
     mobile: 9876543210,
     city: "Indore",
@@ -52,3 +55,15 @@ fy.forEach((element) => {
 });
 
 console.log(fy);
+console.log(fy[1].name);
+console.log(fy[1]["name"]);
+
+let khushi = {
+  name: "Khushi Kumari",
+  dob: "11-03-2006",
+  mobile: 9798227499,
+  city: "Bhopal",
+  profession: "Software Engineer",
+};
+console.log(Object.keys(khushi));
+console.log(Object.values(khushi));
