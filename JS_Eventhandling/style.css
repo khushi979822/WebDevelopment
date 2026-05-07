@@ -1,0 +1,13 @@
+#bulb1 {
+    width: 100px;
+    height:100px;
+    padding: 1px;
+    border-radius: 100px;
+    border:2px solid black;
+    background-color: white;
+    text-align: center;
+    line-height: 100px;
+
+}
+
+
