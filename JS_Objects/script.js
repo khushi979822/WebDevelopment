@@ -104,3 +104,6 @@ console.log(b.charAt(2));
 let c = 3.1478990874899000000233;
 
 console.log(c.toFixed(2));
+
+let fullname = "khushi kumari";
+console.log("My name is " + fullname);
