@@ -19,10 +19,6 @@ function Secondary() {
 }
 
 
-
-
-
-
 document.getElementById("Warning").addEventListener("click", Warning());
 document.getElementById("Success").addEventListener("click", Success());
 document.getElementById("Secondary").addEventListener("click", Secondary());
