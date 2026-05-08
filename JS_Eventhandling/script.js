@@ -18,6 +18,11 @@ function Secondary() {
   document.getElementById("bulb1").style.backgroundColor = "blue";
 }
 
+
+
+
+
+
 document.getElementById("Warning").addEventListener("click", Warning());
 document.getElementById("Success").addEventListener("click", Success());
 document.getElementById("Secondary").addEventListener("click", Secondary());
