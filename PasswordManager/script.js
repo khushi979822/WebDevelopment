@@ -1,33 +1,36 @@
-document.getElementById("passFrom").addEventListener("submit",(event) => {
-    event.preventDefault();
-    const webSiteName = document.getElementById("siteName").value.trim();
-    const userName = document.getElementById("userName").value.trim();
-    const password = document.getElementById("password").value;
+document.getElementById("passFrom").addEventListener("submit", (event) => {
+  event.preventDefault();
 
-    const packet = {
-        websiteName: webSiteName,
-        UserName: userName,
-        Passsword:password,
+  const webSiteName = document.getElementById("siteName").value.trim();
+  const userName = document.getElementById("userName").value.trim();
+  const password = document.getElementById("password").value;
 
-    };
-    saveToLocalStorage(packet);
+  const packet = {
+    WebsiteName: webSiteName,
+    UserName: userName,
+    Password: password,
+  };
+
+  saveToLocalStorage(packet);
+
+  document.getElementById("siteName").value = "";
+  document.getElementById("userName").value = "";
+  document.getElementById("password").value = "";
 });
 
-document.getElementById("passFrom").addEventListener("reset",(event) => {
-    document.getElementById("siteName").value = "";
-    document.getElementById("userName").value = "";
-    document.getElementById("password").value = "";
-
+document.getElementById("passFrom").addEventListener("reset", (event) => {
+  event.preventDefault();
+  document.getElementById("siteName").value = "";
+  document.getElementById("userName").value = "";
+  document.getElementById("password").value = "";
 });
 
-function saveTOLocalStorage(packet) {
-    const oldData = JSON.parse(localStorage.getItem("Passwords"));
+function saveToLocalStorage(packet) {
+  const oldData = JSON.parse(localStorage.getItem("Passwords")) || [];
 
-    const newData = oldData.push(packet);
-    console.log(newData);
+  oldData.push(packet);
 
-    const packetInString = JSON.stringify(newData);
+  const packetInString = JSON.stringify(oldData);
 
-    localStorage.setItem("Passwords",packetInString);
-
+  localStorage.setItem("Passwords", packetInString);
 }
