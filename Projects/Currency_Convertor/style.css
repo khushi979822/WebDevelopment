@@ -1,0 +1,40 @@
+body {
+  background: linear-gradient(135deg, #00c6ff, #ffaa00);
+
+  min-height: 200vh;
+}
+
+header {
+  background:linear-gradient(rgb(0, 174, 255),rgb(0, 132, 255),rgb(0, 76, 255));
+  font-weight: bold;
+  border: 1px solid black;
+
+}
+
+.converter-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+img {
+  width: 90px;
+  height: 60px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+button {
+  font-size: 18px;
+
+  font-weight: bold;
+  box-shadow: 0 3px 4px rgba(3, 116, 237, 0.711);
+}
+
+h3 {
+  font-weight: bold;
+
+  color: #222;
+}
