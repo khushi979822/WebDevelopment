@@ -1,57 +1,94 @@
-let countryCode = {
-  inr: "IN",
-  usd: "US",
-  eur: "EU",
-  gbp: "GB",
-};
+let fromCurrency = document.getElementById("fromCurrency");
+let toCurrency = document.getElementById("toCurrency");
+let flag1 = document.getElementById("flag1");
+let flag2 = document.getElementById("flag2");
+let result = document.getElementById("result");
+let errorMsg = document.getElementById("errorMsg");
 
-function updateFlag() {
-  let from = document.getElementById("fromCurrency").value;
+let currencyData = [];
 
-  let to = document.getElementById("toCurrency").value;
+async function loadCurrencies() {
+  let response = await fetch("codes.json");
+  currencyData = await response.json();
 
-  document.getElementById("flag1").src =
-    `https://flagsapi.com/${countryCode[from]}/flat/64.png`;
+  currencyData.forEach((currency) => {
+    let option1 = document.createElement("option");
+    option1.value = currency.currency_code.toLowerCase();
+    option1.innerHTML = `${currency.country} (${currency.currency_code})`;
 
-  document.getElementById("flag2").src =
-    `https://flagsapi.com/${countryCode[to]}/flat/64.png`;
+    let option2 = document.createElement("option");
+    option2.value = currency.currency_code.toLowerCase();
+    option2.innerHTML = `${currency.country} (${currency.currency_code})`;
+
+    fromCurrency.appendChild(option1);
+    toCurrency.appendChild(option2);
+  });
+
+  fromCurrency.value = "inr";
+  toCurrency.value = "usd";
+
+  updateFlags();
 }
 
-document.getElementById("fromCurrency").addEventListener("change", updateFlag);
+function getCountryCode(currencyCode) {
+  let country = currencyData.find(
+    (item) => item.currency_code.toLowerCase() === currencyCode,
+  );
 
-document.getElementById("toCurrency").addEventListener("change", updateFlag);
+  return country.country_code;
+}
+
+function updateFlags() {
+  let fromCode = getCountryCode(fromCurrency.value);
+  let toCode = getCountryCode(toCurrency.value);
+
+  flag1.src = `https://flagsapi.com/${fromCode}/flat/64.png`;
+  flag2.src = `https://flagsapi.com/${toCode}/flat/64.png`;
+}
+
+fromCurrency.addEventListener("change", updateFlags);
+toCurrency.addEventListener("change", updateFlags);
 
 async function convertCurrency() {
   let amount = document.getElementById("amount").value;
+  let from = fromCurrency.value;
+  let to = toCurrency.value;
 
-  let from = document.getElementById("fromCurrency").value;
+  errorMsg.innerHTML = "";
+  result.innerHTML = "Converted Amount : 0";
 
-  let to = document.getElementById("toCurrency").value;
+  if (amount === "") {
+    errorMsg.innerHTML = "Please enter amount";
+    return;
+  }
 
-  let response = await fetch(
-    `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${from}.json`,
-  );
+  if (amount <= 0) {
+    errorMsg.innerHTML = "Amount must be greater than 0";
+    return;
+  }
 
+  let apiUrl = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${from}.json`;
+
+  let response = await fetch(apiUrl);
   let data = await response.json();
 
   let rate = data[from][to];
+  let finalAmount = amount * rate;
 
-  let total = amount * rate;
-
-  document.getElementById("result").innerHTML =
-    `Converted Amount : ${total.toFixed(2)} ${to.toUpperCase()}`;
+  result.innerHTML = `Converted Amount : ${finalAmount.toFixed(2)} ${to.toUpperCase()}`;
 }
 
 function swapCurrency() {
-  let from = document.getElementById("fromCurrency");
+  let temp = fromCurrency.value;
 
-  let to = document.getElementById("toCurrency");
+  fromCurrency.value = toCurrency.value;
+  toCurrency.value = temp;
 
-  let temp = from.value;
+  updateFlags();
 
-  from.value = to.value;
-
-  to.value = temp;
-
-  updateFlag();
+  if (document.getElementById("amount").value !== "") {
+    convertCurrency();
+  }
 }
+
+loadCurrencies();
