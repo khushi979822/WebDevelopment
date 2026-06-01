@@ -1,18 +1,11 @@
-#abcd {
-  background-color:rgb(0, 247, 255);
-
+a {
+  text-decoration: none !important;
 }
 
-#header {
-  background-color:red;
-  color:white;
+a:hover {
+  text-decoration: underline !important;
 }
 
-#footer {
-  background-color:aquamarine;
-}
-
-#clickButton {
-  background-color:blue;
-  color:white;
+.container {
+  size: 500px;
 }
