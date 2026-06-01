@@ -6,6 +6,6 @@ a:hover {
   text-decoration: underline !important;
 }
 
-.container {
-  size: 500px;
+.container{
+  height: 500px;
 }
