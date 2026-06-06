@@ -1,8 +1,10 @@
+import {useNavigate} from 'react-router-dom';
 function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="container d-flex justify-content-center align-items-center">
-        <span className="text-primary fs-2">Home</span>
+        
       </div>
     </>
   );
