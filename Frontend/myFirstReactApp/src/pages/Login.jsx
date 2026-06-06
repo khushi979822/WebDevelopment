@@ -13,7 +13,7 @@ function Login() {
     <>
       <div className="d-flex justify-content-center align-items-center">
         <div className="border p-3 w-50 mt-5 bg-light">
-          <h1 className="text-center">Welcome Back!!!</h1>
+          <h1 className="text-center fw-bold">Welcome Back!!!</h1>
           <br />
           <form onSubmit={handleSubmit}>
             <label htmlFor="userName">User Name</label>
