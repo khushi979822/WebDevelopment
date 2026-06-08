@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import foodTable from "../images/foodTable.webp";
 
 function Register() {
   const [fullName, setFullName] = useState("");
@@ -19,73 +20,88 @@ function Register() {
 
   return (
     <>
-      <div className="container d-flex justify-content-center align-items-center">
-        <div className="border p-3 w-50 mt-5 bg-light">
-          <h1 className="text-center fw-bold">Register</h1>
-          <br />
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="fullName">Full Name</label>
-            <input
-              type="text"
-              name="fullName"
-              className="form-control"
-              placeholder="Enter your full name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-            />
-            <br />
+      <div className="container h-100 d-flex position-relative align-items-center mt-4">
+        <div className="row w-100 justify-content-end pe-lg-4">
+          <div className="col-md-5 col-lg-5">
+            <div className="login-card d-flex flex-column gap-2 px-5 py-4 rounded-3 bg-light">
+              <h2 className="cardheader fw-bold text-center mb-1">Create Account</h2>
 
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              className="form-control"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <br />
-            <label htmlFor="phoneNumber">Phone Number</label>
-            <input
-              type="tel"
-              name="phoneNumber"
-              className="form-control"
-              placeholder="Enter your phone number"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-            <br />
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="form-control"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <br />
+              <p className="text-center text-muted mb-3">
+                Join us as a Customer, Restaurant, or Rider
+              </p>
 
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              className="form-control"
-              placeholder="Enter your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <br />
-            <div className="text-end">
-              <button type="submit" className="btn btn-primary">
+              <label className="form-label fw-medium">Register as:</label>
+
+              <div className="d-flex gap-3 mb-2">
+                <div>
+                  <input type="radio" name="role" defaultChecked /> Customer
+                </div>
+                <div>
+                  <input type="radio" name="role" /> Restaurant
+                </div>
+                <div>
+                  <input type="radio" name="role" /> Rider
+                </div>
+              </div>
+
+              <input
+                type="text"
+                className="form-control custom-input mb-2 py-2"
+                placeholder="Enter your full name"
+              />
+
+              <input
+                type="email"
+                className="form-control custom-input mb-2 py-2"
+                placeholder="Enter your email"
+              />
+
+              <input
+                type="text"
+                className="form-control custom-input mb-2 py-2"
+                placeholder="Enter your phone number"
+              />
+
+              <input
+                type="password"
+                className="form-control custom-input mb-2 py-2"
+                placeholder="Enter your password"
+              />
+
+              <input
+                type="password"
+                className="form-control custom-input mb-2 py-2"
+                placeholder="Confirm your password"
+              />
+
+              <div className="d-flex align-items-center gap-2 mb-2 small">
+                <input type="checkbox" />
+                <span>
+                  I agree to the{" "}
+                  <a href="#" className="text-main text-decoration-none">
+                    terms and conditions
+                  </a>
+                </span>
+              </div>
+
+              <button className="btn-register-login w-100 py-3 mb-2 fw-bold">
                 Register
               </button>
+
+              <p className="text-center mb-1 fs-6">
+                <span className="opacity-75 fw-lighter">
+                  Already registered?
+                </span>{" "}
+                <Link
+                  to="/login"
+                  id="link"
+                  className="fw-semibold text-main opacity-100"
+                >
+                  Login here
+                </Link>
+              </p>
             </div>
-          </form>
-          <hr />
-          <p>
-            Already have an account? <Link to="/login">Login</Link>
-          </p>
+          </div>
         </div>
       </div>
     </>
