@@ -1,18 +1,34 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import logo from "../images/craveing logo.png";
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="header">
-      <img src={logo} alt="Craving Logo" className="logo" />
+    <nav className="sticky top-0 z-50 bg-red-700 px-6 py-3 shadow-md">
+      <div className="flex items-center justify-between">
+        <Link to="/">
+          <img src={logo} alt="logo" className="h-12" />
+        </Link>
 
-      <div className="nav-links">
-        <a href="/login">Login</a>
+        <div className="flex items-center gap-3">
+          <Link
+            to="/login"
+            className="rounded-md px-4 py-2 text-white hover:bg-red-800"
+          >
+            Login
+          </Link>
 
-        <a href="/register" className="register-btn">
-          Register
-        </a>
+          <Link
+            to="/register"
+            className="rounded-md bg-white px-4 py-2 text-red-700 hover:bg-gray-100"
+          >
+            Register
+          </Link>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 }
 

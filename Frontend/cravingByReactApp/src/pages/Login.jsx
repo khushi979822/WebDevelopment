@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Login() {
   const [userName, setUserName] = useState("");
@@ -7,82 +7,73 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log("userName :", userName);
     console.log("password :", password);
   };
+
   return (
-    <>
-      <div className="container h-100 d-flex position-relative align-items-center mt-4">
-        <div className="row w-100 justify-content-start pe-lg-4">
-          <div className="col-md-5 col-lg-5">
-            <div className="login-card d-flex flex-column gap-2 px-5 py-4 rounded-3 bg-light">
-              <h2 className=" cardheader fw-bold text-center mb-1">Welcome Back</h2>
+    <section className="min-h-screen bg-[url('/images/foodTable.webp')] bg-cover bg-center bg-no-repeat flex items-center">
+      <div className="w-full px-6 lg:px-16">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-md rounded-xl bg-white/90 px-10 py-8 shadow-lg"
+        >
+          <h2 className="mb-1 text-center text-3xl font-bold text-red-800">
+            Welcome Back
+          </h2>
 
-              <p className="text-center text-muted mb-3">
-                Login to your Cravings account
-              </p>
+          <p className="mb-6 text-center text-gray-500">
+            Login to your Cravings account
+          </p>
 
-              <label className="form-label fw-bold fs-6">Email</label>
+          <label className="mb-2 block font-bold">Email</label>
+          <input
+            type="email"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder="Enter your email"
+            className="mb-4 w-full rounded-md border px-4 py-3 outline-none focus:border-red-700"
+          />
 
-              <input
-                type="email"
-                className="form-control custom-input mb-2 py-2"
-                placeholder="Enter your email"
-              />
+          <label className="mb-2 block font-bold">Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+            className="mb-4 w-full rounded-md border px-4 py-3 outline-none focus:border-red-700"
+          />
 
-              <label className="form-label fw-bold fs-6">Password</label>
+          <div className="mb-5 flex items-center justify-between text-sm">
+            <label>
+              <input type="checkbox" className="mr-2" />
+              Remember
+            </label>
 
-              <div className="position-relative mb-2">
-                <input
-                  type="password"
-                  className="form-control custom-input py-2"
-                  placeholder="Enter your password"
-                />
-
-                <span className="position-absolute top-50 end-0 translate-middle-y me-2 text-muted">
-                  <i className="bi bi-eye"></i>
-                </span>
-              </div>
-
-              <div className="d-flex justify-content-between align-items-center mb-2 small">
-                <div>
-                  <input type="checkbox" /> Remember
-                </div>
-
-                <a href="#" className="text-decoration-none text-main small">
-                  Forgot password?
-                </a>
-              </div>
-
-              <button className="btn-register-login w-100 py-3 mb-2 fw-bold">
-                Login
-              </button>
-
-              <div className="d-flex align-items-center mb-2">
-                <hr className="flex-grow-1" />
-
-                <span className="mx-2 fw-lighter text-muted">
-                  Don't have an account?
-                </span>
-
-                <hr className="flex-grow-1" />
-              </div>
-
-              <p className="text-center mb-0 fs-6">
-                <Link
-                  to="/register"
-                  id="link"
-                  className="fw-semibold text-main"
-                >
-                  Create an account
-                </Link>
-              </p>
-            </div>
+            <a href="#" className="text-red-700">
+              Forgot password?
+            </a>
           </div>
-        </div>
+
+          <button className="mb-5 w-full rounded-md bg-red-700 py-3 font-bold text-white hover:bg-red-800">
+            Login
+          </button>
+
+          <div className="mb-4 flex items-center gap-2 text-gray-500">
+            <hr className="flex-1" />
+            <span>Don't have an account?</span>
+            <hr className="flex-1" />
+          </div>
+
+          <p className="text-center">
+            <Link to="/register" className="font-semibold text-red-700">
+              Create an account
+            </Link>
+          </p>
+        </form>
       </div>
-    </>
+    </section>
   );
 }
+
 export default Login;
