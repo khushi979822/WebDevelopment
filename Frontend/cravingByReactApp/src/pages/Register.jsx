@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import foodTable from "../images/foodTable.webp";
 
 function Register() {
   return (
-    <section className="min-h-screen bg-[url('/images/foodTable.webp')] bg-cover bg-center bg-no-repeat flex items-center">
+    <section
+      className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center"
+      style={{
+        backgroundImage: `url(${foodTable})`,
+      }}
+    >
       <div className="flex w-full justify-end px-6 lg:px-20">
         <div className="w-full max-w-lg rounded-xl bg-white/90 px-10 py-8 shadow-lg">
           <h2 className="mb-1 text-center text-3xl font-bold text-red-800">

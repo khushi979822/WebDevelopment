@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import foodTable from "../images/foodTable.webp";
 
 function Login() {
   const [userName, setUserName] = useState("");
@@ -12,7 +13,12 @@ function Login() {
   };
 
   return (
-    <section className="min-h-screen bg-[url('/images/foodTable.webp')] bg-cover bg-center bg-no-repeat flex items-center">
+    <section
+      className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center"
+      style={{
+        backgroundImage: `url(${foodTable})`,
+      }}
+    >
       <div className="w-full px-6 lg:px-16">
         <form
           onSubmit={handleSubmit}
