@@ -6,7 +6,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-red-700 px-6 py-3 shadow-md">
+    <nav className="sticky top-0 z-50 bg-orange-700 px-6 py-3 shadow-md">
       <div className="flex items-center justify-between">
         <Link to="/">
           <img src={logo} alt="logo" className="h-12" />
@@ -15,7 +15,7 @@ function Header() {
         <div className="flex items-center gap-3">
           <Link
             to="/login"
-            className="rounded-md px-4 py-2 text-white hover:bg-red-800"
+            className="rounded-md px-4 py-2 text-white hover:bg-orange-700"
           >
             Login
           </Link>
