@@ -14,6 +14,22 @@ app.post("/login", (req, res) => {
   res.json({ message: "Login Successfull" });
 });
 
+app.get("/logout", (req, res) => {
+  res.json({ message: "Logged out successfully" });
+});
+
+app.post("/register", (req, res) => {
+  res.json({ message: "register Successfull" });
+});
+
+app.put("/update", (req, res) => {
+  res.json({ message: "update Successfull" });
+});
+
+app.delete("/delete", (req, res) => {
+  res.json({ message: "delete Successfull" });
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
