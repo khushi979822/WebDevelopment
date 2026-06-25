@@ -6,13 +6,16 @@ export const RegisterUser = async (req, res) => {
 
     if (!fullName || !email || !phone || !gender || !password || !dob) {
       res.status(400).json({ message: "All fields are required" });
-      return;
+      error.statusCode = 400;
+      return next(error);
     }
 
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       res.status(409).json({ message: "Email Already Registered" });
+      error.statusCode = 409;
+      return next(error);
     }
 
     // Create New User and Complete registration will do this tomorrow
@@ -35,7 +38,8 @@ export const RegisterUser = async (req, res) => {
 
     res.status(201).json({ message: "User created Successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+    error.statusCode = 500;
+    return next(error);
   }
 };
 
