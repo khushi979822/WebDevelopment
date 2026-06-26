@@ -43,8 +43,36 @@ export const RegisterUser = async (req, res) => {
   }
 };
 
-export const LoginUser = (req, res) => {
-  res.json({ message: "Login Successfull from Controller" });
+export const LoginUser = async (req, res,next) => {
+ try {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    const errror = new Error("All fields are required");
+    errror.statusCode = 400;
+    return next(errror);
+  }
+
+  const existingUser = await User.findOne({ email });
+
+  if (!existingUser) {
+    const error = new Error("Invalid email or password");
+    error.statusCode = 404;
+    return next(error);
+  }
+
+  if(password !== existingUser.password){
+    const error = new Error("Incorrect password");
+    error.statusCode = 401;
+    return next(error);
+  }
+
+  res.status(200).json({ message: "Welcome Back", data: existingUser});
+
+ } catch (error) {
+  console.log(error.message);
+  next();
+ }
 };
 
 export const LogoutUser = (req, res) => {
