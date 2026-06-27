@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import bcrypt from "bcrypt";
 
 export const RegisterUser = async (req, res, next) => {
   try {
@@ -25,13 +26,15 @@ export const RegisterUser = async (req, res, next) => {
       url: photoUrl,
       publicId: null,
     };
+    const SALT = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, SALT);
 
     const newUser = await User.create({
       fullName,
       email,
       phone,
       gender,
-      password,
+      password: hashedPassword,
       dob,
       photo,
     });
@@ -42,36 +45,37 @@ export const RegisterUser = async (req, res, next) => {
   }
 };
 
-export const LoginUser = async (req, res,next) => {
- try {
-  const { email, password } = req.body;
+export const LoginUser = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
 
-  if (!email || !password) {
-    const errror = new Error("All fields are required");
-    errror.statusCode = 400;
-    return next(errror);
+    if (!email || !password) {
+      const errror = new Error("All fields are required");
+      errror.statusCode = 400;
+      return next(errror);
+    }
+
+    const existingUser = await User.findOne({ email });
+
+    if (!existingUser) {
+      const error = new Error("Invalid email or password");
+      error.statusCode = 404;
+      return next(error);
+    }
+
+    const isVerified = await bcrypt.compare(password, existingUser.password);
+
+    if (!isVerified) {
+      const error = new Error("Incorrect password");
+      error.statusCode = 401;
+      return next(error);
+    }
+
+    res.status(200).json({ message: "Welcome Back", data: existingUser });
+  } catch (error) {
+    console.log(error.message);
+    next();
   }
-
-  const existingUser = await User.findOne({ email });
-
-  if (!existingUser) {
-    const error = new Error("Invalid email or password");
-    error.statusCode = 404;
-    return next(error);
-  }
-
-  if(password !== existingUser.password){
-    const error = new Error("Incorrect password");
-    error.statusCode = 401;
-    return next(error);
-  }
-
-  res.status(200).json({ message: "Welcome Back", data: existingUser});
-
- } catch (error) {
-  console.log(error.message);
-  next();
- }
 };
 
 export const LogoutUser = (req, res) => {
