@@ -12,8 +12,8 @@ import {
 
 const router = express.Router();
 
-router.post("/login", sampleMiddleWare2, LoginUser);
+router.post("/login", sampleMiddleWare, LoginUser);
 router.post("/register", sampleMiddleWare, sampleMiddleWare2, RegisterUser);
-router.get("/logout", sampleMiddleWare, LogoutUser);
+router.get("/logout", sampleMiddleWare2, LogoutUser);
 
 export default router;

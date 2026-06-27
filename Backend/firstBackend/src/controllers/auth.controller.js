@@ -1,11 +1,11 @@
 import User from "../models/user.model.js";
 
-export const RegisterUser = async (req, res) => {
+export const RegisterUser = async (req, res, next) => {
   try {
     const { fullName, email, phone, gender, password, dob } = req.body;
 
     if (!fullName || !email || !phone || !gender || !password || !dob) {
-      res.status(400).json({ message: "All fields are required" });
+      const error = new Error("All Fields are Required");
       error.statusCode = 400;
       return next(error);
     }
@@ -13,7 +13,7 @@ export const RegisterUser = async (req, res) => {
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      res.status(409).json({ message: "Email Already Registered" });
+      const error = new Error("Email Already Registered");
       error.statusCode = 409;
       return next(error);
     }
@@ -38,7 +38,6 @@ export const RegisterUser = async (req, res) => {
 
     res.status(201).json({ message: "User created Successfully" });
   } catch (error) {
-    error.statusCode = 500;
     return next(error);
   }
 };
