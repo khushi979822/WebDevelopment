@@ -44,6 +44,21 @@ Tables
 Forms
 Text formatting
 Input elements
+
+CSS3
+CSS selectors
+Box Model
+Display properties
+Flexbox
+CSS Grid
+Responsive design
+CSS variables
+Gradients
+Animations
+Keyframes
+Layout design
+
+
 React.js	Component-based frontend applications
 Node.js	Backend and server-side development
 Express.js	REST API and backend development
