@@ -34,6 +34,16 @@ Project Development
 | Git | Version control |
 | GitHub | Code hosting and collaboration |
 
+📚 Topics Covered
+HTML5
+Basic HTML structure
+Semantic HTML
+Links and navigation
+Lists
+Tables
+Forms
+Text formatting
+Input elements
 React.js	Component-based frontend applications
 Node.js	Backend and server-side development
 Express.js	REST API and backend development
