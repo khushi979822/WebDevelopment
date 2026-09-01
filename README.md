@@ -58,6 +58,31 @@ Animations
 Keyframes
 Layout design
 
+
+📈 Learning Journey
+HTML5
+   ↓
+CSS3
+   ↓
+Responsive Web Design
+   ↓
+Bootstrap
+   ↓
+JavaScript
+   ↓
+DOM & Events
+   ↓
+API Integration
+   ↓
+React.js
+   ↓
+Node.js
+   ↓
+Express.js
+   ↓
+Full-Stack Development
+
+
 💻 Development Approach
 
 I follow a hands-on learning approach by:
