@@ -58,7 +58,18 @@ Animations
 Keyframes
 Layout design
 
+💻 Development Approach
 
+I follow a hands-on learning approach by:
+
+Practicing concepts through code
+Building small projects
+Working with APIs
+Creating responsive interfaces
+Exploring modern frontend technologies
+Improving code organization
+Using Git and GitHub for version control
+Gradually moving towards full-stack development
 React.js	Component-based frontend applications
 Node.js	Backend and server-side development
 Express.js	REST API and backend development
