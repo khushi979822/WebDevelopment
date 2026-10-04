@@ -83,7 +83,7 @@ Express.js
 Full-Stack Development
 
 
-💻 Development Approach
+# 💻 Development Approach
 
 I follow a hands-on learning approach by:
 
