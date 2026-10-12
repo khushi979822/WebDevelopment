@@ -59,7 +59,7 @@ Keyframes
 Layout design
 
 
-📈 Learning Journey
+# 📈 Learning Journey
 HTML5
    ↓
 CSS3
